@@ -1,0 +1,15 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: product
+  profiles:
+    active: dev # 环境
+  cloud:
+    nacos:
+      server-addr: ${nacos.address} # nacos地址
+      config:
+        file-extension: yaml # 文件后缀名
+        namespace: ${nacos.namespace} # 用来区分测试生产
+        group: DEFAULT_GROUP #可以用来区分不同项目
+age: 2

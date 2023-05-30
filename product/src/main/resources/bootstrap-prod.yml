@@ -1,0 +1,4 @@
+nacos:
+  address: 124.223.42.211:8848
+  namespace: f6338480-68c2-4d7f-99c4-fe6b89865dcc
+

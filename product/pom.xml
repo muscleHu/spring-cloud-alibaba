@@ -17,11 +17,41 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <!--<profiles>
+        <profile>
+            &lt;!&ndash;不同环境Profile的唯一id&ndash;&gt;
+            <id>dev</id>
+            <properties>
+                &lt;!&ndash;profiles.active是自定义的字段（名字随便起），自定义字段可以有多个&ndash;&gt;
+                <profiles.active>dev</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+            </properties>
+        </profile>
+    </profiles>-->
+
     <dependencies>
         <dependency>
             <groupId>com.cloud</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
     </dependencies>
 
