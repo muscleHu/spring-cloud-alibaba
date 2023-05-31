@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class NacosConfigCtrl {
 
-    @Value("${test.name}")
+   /* @Value("${test.name}")
     private String testName;
 
     @Value("${age}")
     private String age;
+
+    @Value("${search.url}")
+    private String url;
 
     @GetMapping("/getName")
     public String getConfigInfo() {
@@ -23,7 +26,12 @@ public class NacosConfigCtrl {
     }
 
     @GetMapping("/age")
-    public String getage() {
+    public String getAge() {
         return age;
     }
+
+    @GetMapping("/url")
+    public String getUrl() {
+        return age;
+    }*/
 }

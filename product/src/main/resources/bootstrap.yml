@@ -1,10 +1,4 @@
-server:
-  port: 8001
 spring:
-  application:
-    name: product
-  profiles:
-    active: dev # 环境
   cloud:
     nacos:
       server-addr: ${nacos.address} # nacos地址
@@ -12,4 +6,12 @@ spring:
         file-extension: yaml # 文件后缀名
         namespace: ${nacos.namespace} # 用来区分测试生产
         group: DEFAULT_GROUP #可以用来区分不同项目
-age: 2
+        shared-configs: #共享配置
+          - data-id: publicUrl.yaml
+            group: DEFAULT_GROUP
+            refresh: true
+        extension-configs: #扩展配置 使用优先级>shared-configs
+          - data-id: publicUrl-e.yaml
+            group: DEFAULT_GROUP
+            refresh: true
+

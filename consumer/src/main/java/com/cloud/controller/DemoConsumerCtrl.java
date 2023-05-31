@@ -13,7 +13,6 @@ public class DemoConsumerCtrl {
 
     @RequestMapping("/helloCloud")
     public String helloCloud(String param){
-
         return feignDemoInterface.getFeignDemo("dsahjksadgasd");
     }
 }
