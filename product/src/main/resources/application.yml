@@ -49,22 +49,20 @@ spring:
         jdbc-url: jdbc:mysql://124.223.42.211:3306/kp_002
         username: root
         password: 123654
-    rules:
-      sharding:
+    sharding:
+        # 分库策略
+        default-database-strategy:
+          inline:
+              # 分片键 为表中某个字段
+            sharding-column: shading_key
+              # 具体分片时的表达式
+            algorithm-expression: kp$->{shading_key}
         tables:
           # 需要分片的表名，逻辑名，随意
           user:
             # 数据节点配置kp${}组成上面names中的数据源名称, 1..2代表 1到2之间的数值
             # 数据库中表的语法：schema.表名 = database.表名
             actual-data-nodes: kp$->{1..2}.user
-            # 分库策略
-            database-strategy:
-              # 使用inline分片算法
-              inline:
-                # 分片键 为表中某个字段
-                sharding-column: shading_key
-                # 具体分片时的表达式
-                algorithm-expression: kp_$->{shading_key}
     props:
       sql.show: true
 

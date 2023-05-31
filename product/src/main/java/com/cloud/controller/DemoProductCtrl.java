@@ -24,7 +24,7 @@ public class DemoProductCtrl {
 
     @GetMapping("/getUser")
     public List<User> getUser(@RequestParam("shadingKey")String shadingKey){
-        Wrapper<User> userWrapper= new QueryWrapper<User>().eq("shading_key",shadingKey);
+        QueryWrapper<User> userWrapper= new QueryWrapper<User>().eq("shading_key",shadingKey);
         return userMapper.selectList(userWrapper);
     }
 
