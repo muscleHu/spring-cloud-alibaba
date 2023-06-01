@@ -11,4 +11,38 @@ spring:
       discovery:
         server-addr: 124.223.42.211:8848
         ip: 124.223.42.211
+  main:
+    allow-bean-definition-overriding: true
+  shardingsphere:
+    datasource:
+      names: kp1,kp2
+      # 这里的名称需要在datasource.names中存在
+      kp1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://124.223.42.211:3306/kp_001
+        username: root
+        password: 123654
+      kp2:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://124.223.42.211:3306/kp_002
+        username: root
+        password: 123654
+    sharding:
+      # 分库策略
+      default-database-strategy:
+        inline:
+          # 分片键 为表中某个字段
+          sharding-column: shading_key
+          # 具体分片时的表达式
+          algorithm-expression: kp$->{shading_key}
+      tables:
+        # 需要分片的表名，逻辑名，随意
+        user:
+          # 数据节点配置kp${}组成上面names中的数据源名称, 1..2代表 1到2之间的数值
+          # 数据库中表的语法：schema.表名 = database.表名
+          actual-data-nodes: kp$->{1..2}.user
+    props:
+      sql.show: true
 
