@@ -11,6 +11,9 @@ spring:
       discovery:
         server-addr: 124.223.42.211:8848
         ip: 124.223.42.211
+  data:
+    mongodb:
+      uri: mongodb://hjt:123456@124.223.42.211:27017/testdb
   main:
     allow-bean-definition-overriding: true
   shardingsphere:
@@ -45,4 +48,13 @@ spring:
           actual-data-nodes: kp$->{1..2}.user
     props:
       sql.show: true
+dubbo:
+  application:
+    name: dubbo-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://124.223.42.211:8848
+
 

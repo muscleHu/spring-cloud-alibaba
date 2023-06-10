@@ -1,4 +1,4 @@
-package com.cloud;
+package com.cloud.outInterface;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

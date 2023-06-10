@@ -5,4 +5,11 @@ spring:
   data:
     mongodb:
       uri: mongodb://hjt:123456@124.223.42.211:27017/testdb
-
+dubbo:
+  application:
+    name: dubbo-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://124.223.42.211:8848
